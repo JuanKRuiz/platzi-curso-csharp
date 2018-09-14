@@ -12,6 +12,7 @@ namespace CoreEscuela.Entidades
 
         public string Dirección { get; set; }
 
+
         public void LimpiarLugar()
         {
             Printer.DrawLine();
