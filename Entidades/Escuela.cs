@@ -1,9 +1,11 @@
+using System;
 using System.Collections.Generic;
 
 namespace CoreEscuela.Entidades
 {
-    class Escuela
+    public class Escuela
     {
+        public string UniqueId { get; private set; } = Guid.NewGuid().ToString();
         string nombre;
         public string Nombre
         {
@@ -21,13 +23,12 @@ namespace CoreEscuela.Entidades
 
         public Escuela(string nombre, int año, 
                        TiposEscuela tipo, 
-                       string pais = "", string ciudad = "")
+                       string pais = "", string ciudad = "") : base()
         {
             (Nombre, AñoDeCreación) = (nombre, año);
             Pais = pais;
             Ciudad = ciudad;
         }
-
 
         public override string ToString()
         {
