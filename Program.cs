@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using CoreEscuela.Entidades;
 using static System.Console;
 
@@ -12,49 +13,33 @@ namespace Etapa1
                         ciudad: "Bogotá", pais: "Colombia"
                         );
 
-            escuela.Cursos = new Curso[]{
-                        new Curso(){ Nombre = "101"},
-                        new Curso() {Nombre = "201"},
-                        new Curso{Nombre = "301"}
+            escuela.Cursos = new List<Curso>(){
+                        new Curso(){ Nombre = "101", Jornada = TiposJornada.Mañana },
+                        new Curso() {Nombre = "201", Jornada = TiposJornada.Mañana},
+                        new Curso{Nombre = "301", Jornada = TiposJornada.Mañana}
             };
 
+            escuela.Cursos.Add(new Curso { Nombre = "102", Jornada = TiposJornada.Tarde });
+            escuela.Cursos.Add(new Curso { Nombre = "202", Jornada = TiposJornada.Tarde });
+
+            var otrColeccion = new List<Curso>(){
+                        new Curso(){ Nombre = "401", Jornada = TiposJornada.Mañana },
+                        new Curso() {Nombre = "501", Jornada = TiposJornada.Mañana},
+                        new Curso{Nombre = "501", Jornada = TiposJornada.Tarde}
+            };
+
+            /*escuela.Cursos.AddRange(otrColeccion);
             ImpimirCursosEscuela(escuela);
 
-            bool rta = 10 == 10;//true
-            int cantidad = 10;
+            escuela.Cursos.RemoveAll(delegate (Curso cur)
+                                    {
+                                        return cur.Nombre == "301";
+                                    });
 
-            if (rta == false)
-            {
-                WriteLine("Se cumplio la condición #1");
-            }
-            else if (cantidad > 15)
-            {
-                WriteLine("Se cumplio la condición #2");
-            }
-            else
-            {
-                WriteLine("NO Se cumplio la condición");
-            }
-
-            if(cantidad > 5 && rta == false)
-            {
-                WriteLine("Se cumplio la condición #3");
-            }
-
-            
-            if(cantidad > 5 && rta )
-            {
-                WriteLine("Se cumplio la condición #4");
-            }
-
-            cantidad = 10;
-            if(
-                (cantidad > 15 || !rta) 
-                && (cantidad % 5 == 0 )
-            )
-            {
-                WriteLine("Se cumplio la condición #5");
-            }
+            escuela.Cursos.RemoveAll((cur)=> cur.Nombre == "501" && cur.Jornada == TiposJornada.Mañana );
+            */
+            WriteLine("==================");
+            ImpimirCursosEscuela(escuela);
 
         }
 
