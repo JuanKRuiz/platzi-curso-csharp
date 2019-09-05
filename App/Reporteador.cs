@@ -40,7 +40,7 @@ namespace CoreEscuela.App
             listaEvaluaciones = GetListaEvaluaciones();
 
             return (from Evaluación ev in listaEvaluaciones
-                    select ev.Asignatura.Nombre).Distinct(); ;
+                    select ev.Asignatura.Nombre).Distinct();
         }
 
         public Dictionary<string, IEnumerable<Evaluación>> GetDicEvaluaXAsig()
